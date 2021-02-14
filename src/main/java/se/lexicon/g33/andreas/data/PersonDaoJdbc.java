@@ -131,6 +131,7 @@ public class PersonDaoJdbc {
             statement = connection.prepareStatement("UPDATE person SET first_name = ?, last_name = ? WHERE person_id = ?");
             statement.setString(1, person.getFirstName());
             statement.setString(2, person.getLastName());
+            statement.setInt(3, person.getPersonId());
             statement.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -138,6 +139,25 @@ public class PersonDaoJdbc {
             closeAll(statement, connection);
         }
         return person;
+    }
+
+    //REMOVE
+    public boolean delete(int person_id){
+        boolean deleted = false;
+        Connection connection = null;
+        PreparedStatement statement = null;
+        try{
+            connection = DbConnection.getConnection();
+            statement = connection.prepareStatement("DELETE FROM person WHERE person_id = ?");
+            statement.setInt(1, person_id);
+            int records = statement.executeUpdate();
+            deleted = records > 0;
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }finally {
+            closeAll(statement, connection);
+        }
+        return deleted;
     }
 
 }
