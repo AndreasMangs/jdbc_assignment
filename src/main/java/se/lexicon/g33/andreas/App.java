@@ -2,6 +2,7 @@ package se.lexicon.g33.andreas;
 
 import se.lexicon.g33.andreas.data.DbConnection;
 import se.lexicon.g33.andreas.data.PersonDaoJdbc;
+import se.lexicon.g33.andreas.data.TodoDaoJdbc;
 import se.lexicon.g33.andreas.model.Person;
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        System.out.println(PersonDaoJdbc.getInstance().findAll());
+        //System.out.println(PersonDaoJdbc.getInstance().findAll());
         System.out.println("--------------------------------------");
         //System.out.println(PersonDaoJdbc.getInstance().findById(1));
 
@@ -35,5 +36,7 @@ public class App
         PersonDaoJdbc.getInstance().delete(2);
         System.out.println(PersonDaoJdbc.getInstance().findAll());
          */
+
+        System.out.println(TodoDaoJdbc.getInstance().findAll());
     }
 }

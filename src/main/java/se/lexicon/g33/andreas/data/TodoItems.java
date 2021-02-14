@@ -18,7 +18,7 @@ public class TodoItems {
     public static Todo findById(int toDoId){
         int answer = 0;
         for (int i = 0; i< toDoArray.length; i++){
-            if (toDoArray[i].getTodoId() == (toDoId)){
+            if (toDoArray[i].getTodo_id() == (toDoId)){
                 answer = i;// Saves the wanted toDoItems place in the Array so we return the right one
                 break;
             }
@@ -50,7 +50,7 @@ public class TodoItems {
         } else if ((itemExist(toDoId))) {
             Todo[] newArray = new Todo[toDoArray.length - 1];
             for (int i = 0, j = 0; i < toDoArray.length; i++, j++) {
-                if (toDoArray[i].getTodoId() == (toDoId)) {
+                if (toDoArray[i].getTodo_id() == (toDoId)) {
                     --j;// toDoItem is removed
                     isDeleted = true;//Remove action finished
                 } else {
@@ -67,7 +67,7 @@ public class TodoItems {
     public static boolean itemExist(int toDoId) {
         boolean IsExisting = false;
         for (int i = 0; i < toDoArray.length; i++) {
-            if (toDoArray[i].getTodoId() == (toDoId)) {
+            if (toDoArray[i].getTodo_id() == (toDoId)) {
                 IsExisting = true;//Wanted item exist
                 break;
             }
@@ -103,7 +103,7 @@ public class TodoItems {
             System.out.println("Array is empty");
         } else {
             for (int i = 0, j = 0; i < toDoArray.length; i++, j++) {
-                if (toDoArray[i].getAssignee().getPersonId() != (personId)) {
+                if (toDoArray[i].getAssignee_id().getPersonId() != (personId)) {
                     --j;// makes new array shorter because assigne is not the right one
                 } else {
                     newArray[j] = toDoArray[i];// saves items that have the right assigne
@@ -124,8 +124,8 @@ public class TodoItems {
             System.out.println("Array is empty");
         } else {
             for (int i = 0, j = 0; i < toDoArray.length; i++, j++) {
-                if (toDoArray[i].getAssignee() != (assignee)) {
-                    --j;// makes new array shorter because assigne is not the right one
+                if (toDoArray[i].getAssignee_id() != (assignee)) {
+                    --j;// makes new array shorter because assignee is not the right one
                 } else {
                     newArray[j] = toDoArray[i];// saves items that have the right assigne
                     answer = true;
@@ -145,7 +145,7 @@ public class TodoItems {
             System.out.println("Array is empty");
         } else {
             for (int i = 0, j = 0; i < toDoArray.length; i++, j++) {
-                if (toDoArray[i].getAssignee() != null) {
+                if (toDoArray[i].getAssignee_id() != null) {
                     --j;// makes new array shorter because someone is assigned to item
                 } else {
                     newArray[j] = toDoArray[i];// saves items that have no assigne
